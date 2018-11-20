@@ -5,6 +5,11 @@
  */
 package apresentacao;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author arthu
@@ -28,21 +33,90 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImageIcon icon = new ImageIcon(getClass().getResource("/util/back.jpg"));
+        Image image = icon.getImage();
+        jDesktopPrincipal = new javax.swing.JDesktopPane(){
+
+            @Override
+            public void paintComponent(Graphics gr){
+                gr.drawImage(image,0,0,getWidth(),getHeight(), this);
+            }
+        };
+        jButtonAdministrativo = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela Inicial");
+        setBackground(new java.awt.Color(153, 153, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(java.awt.Color.lightGray);
+
+        jDesktopPrincipal.setBackground(new java.awt.Color(204, 204, 204));
+        jDesktopPrincipal.setPreferredSize(new java.awt.Dimension(1200, 1000));
+
+        jButtonAdministrativo.setText("ADMINISTRATIVO");
+        jButtonAdministrativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdministrativoActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("OPERACIONAL");
+
+        jDesktopPrincipal.setLayer(jButtonAdministrativo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPrincipal.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPrincipalLayout = new javax.swing.GroupLayout(jDesktopPrincipal);
+        jDesktopPrincipal.setLayout(jDesktopPrincipalLayout);
+        jDesktopPrincipalLayout.setHorizontalGroup(
+            jDesktopPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPrincipalLayout.createSequentialGroup()
+                .addGap(247, 247, 247)
+                .addGroup(jDesktopPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(253, Short.MAX_VALUE))
+        );
+        jDesktopPrincipalLayout.setVerticalGroup(
+            jDesktopPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPrincipalLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jButtonAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addComponent(jDesktopPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addComponent(jDesktopPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdministrativoActionPerformed
+        
+        try {
+
+            TelaAdmPrincipal telaAdmPrincipal = new TelaAdmPrincipal(jDesktopPrincipal);
+            jDesktopPrincipal.add(telaAdmPrincipal);
+            telaAdmPrincipal.setLocation(20, 15);
+            telaAdmPrincipal.setVisible(true);
+            this.dispose();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
+    }//GEN-LAST:event_jButtonAdministrativoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +154,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonAdministrativo;
+    private javax.swing.JDesktopPane jDesktopPrincipal;
     // End of variables declaration//GEN-END:variables
 }
