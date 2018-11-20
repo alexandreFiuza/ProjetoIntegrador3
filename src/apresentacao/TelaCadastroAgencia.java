@@ -7,10 +7,6 @@ import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import negocio.NAgencia;
 
-/**
- *
- * @author arthu
- */
 public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
 
     JDesktopPane jDesktopPrincipal = new JDesktopPane();
@@ -45,6 +41,15 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }
+    public void limpar(){
+        
+        jTextFieldIdentificador.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldCNPJ.setText("");
+        jTextFieldEndereco.setText("");
+        jTextFieldTelefone.setText("");
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,6 +70,11 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
         jTextFieldCNPJ = new javax.swing.JTextField();
         jTextFieldEndereco = new javax.swing.JTextField();
         jTextFieldTelefone = new javax.swing.JTextField();
+        jButtonVoltar = new javax.swing.JButton();
+        jButtonLimpar = new javax.swing.JButton();
+        jButtonSalvar = new javax.swing.JButton();
+
+        setTitle("AgenciaPI3 - Cadastro de Agencia");
 
         jLabel1.setText("IDENTIFICADOR:");
 
@@ -76,6 +86,27 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
 
         jLabel5.setText("TELEFONE:");
 
+        jButtonVoltar.setText("VOLTAR");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+
+        jButtonLimpar.setText("LIMPAR");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
+
+        jButtonSalvar.setText("SALVAR");
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalvarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,21 +114,30 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldNome)
-                    .addComponent(jTextFieldCNPJ)
-                    .addComponent(jTextFieldEndereco)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 135, Short.MAX_VALUE)))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNome)
+                            .addComponent(jTextFieldCNPJ)
+                            .addComponent(jTextFieldEndereco)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonVoltar)
+                        .addGap(72, 72, 72)
+                        .addComponent(jButtonLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvar)
+                        .addGap(16, 16, 16)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -119,18 +159,84 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVoltar)
+                    .addComponent(jButtonLimpar)
+                    .addComponent(jButtonSalvar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        limpar();
+    }//GEN-LAST:event_jButtonLimparActionPerformed
+
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        
+        try {
+            if (jTextFieldNome.getText().isEmpty()) {
+                throw new Exception("É necessário preencher o nome da agência.");
+            }
+            if (jTextFieldCNPJ.getText().isEmpty()) {
+                throw new Exception("É necessário preencher o CNPJ da agência.");
+            }
+            if (jTextFieldEndereco.getText().isEmpty()) {
+                throw new Exception("É necessário preencher o endereço da agência.");
+            }
+            if (jTextFieldTelefone.getText().isEmpty()) {
+                throw new Exception("É necessário preencher o telefone da agência.");
+            }
+            
+            Agencia agencia = new Agencia();
+
+            if (!jTextFieldIdentificador.getText().isEmpty()) {
+                agencia.setIdentificador(Integer.parseInt(jTextFieldIdentificador.getText()));
+            }
+            
+            agencia.setNome(jTextFieldNome.getText());
+            agencia.setCnpj(Integer.parseInt(jTextFieldCNPJ.getText()));
+            agencia.setEndereco(jTextFieldEndereco.getText());
+            agencia.setTelefone(Integer.parseInt(jTextFieldTelefone.getText()));
+
+            NAgencia negocio = new NAgencia();
+
+            negocio.salvar(agencia);
+            JOptionPane.showMessageDialog(null, "Operação efetuada com sucesso!");
+
+            limpar();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        try {
+            
+            TelaAgencia telaAgencia = new TelaAgencia(jDesktopPrincipal);
+            jDesktopPrincipal.add(telaAgencia);
+            telaAgencia.setLocation(15, 15);
+            telaAgencia.setVisible(true);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonLimpar;
+    private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

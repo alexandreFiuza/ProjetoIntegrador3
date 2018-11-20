@@ -69,6 +69,7 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
             jDesktopPrincipal.add(telaAgencia);
             telaAgencia.setLocation(20, 15);
             telaAgencia.setVisible(true);
+            this.dispose();
 
         } catch (Exception e) {
             e.printStackTrace();
