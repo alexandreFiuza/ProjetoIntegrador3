@@ -25,11 +25,14 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
         this.jDesktopPrincipal = jDesktopPrincipal;
     }
 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jButtonAgencia = new javax.swing.JButton();
+
+        setTitle("AgenciaPI3 - Administração");
 
         jButtonAgencia.setText("AGENCIA");
         jButtonAgencia.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +69,6 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
             jDesktopPrincipal.add(telaAgencia);
             telaAgencia.setLocation(20, 15);
             telaAgencia.setVisible(true);
-            this.dispose();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,11 +76,6 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jButtonAgenciaActionPerformed
-
-    
-    
-    
-    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

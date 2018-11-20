@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package apresentacao;
 
 import entidade.Agencia;
@@ -18,40 +14,38 @@ import negocio.NAgencia;
 public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
 
     JDesktopPane jDesktopPrincipal = new JDesktopPane();
-    
+
     public TelaCadastroAgencia() {
         initComponents();
     }
-    
+
     public TelaCadastroAgencia(JDesktopPane jDesktopPrincipal) {
         this();
         this.jDesktopPrincipal = jDesktopPrincipal;
-        
+
     }
+
     TelaCadastroAgencia(JDesktopPane jDesktopPrincipal, String codigo) {
         this();
         this.jDesktopPrincipal = jDesktopPrincipal;
-        
+
         //preencher a tela
-        
         try {
 
             NAgencia negocio = new NAgencia();
             Agencia agencia = negocio.consultar(Integer.parseInt(codigo));
 
-//            jTextFieldCodigo.setText(clientePF.getIdentificador()+ "");
-//            jTextFieldNome.setText(clientePF.getNome());
-//            jTextFieldCPFCNPJ.setText(clientePF.getCpf()+ "");
-//            jTextFieldTelefone.setText(clientePF.getTelefone()+ "");
-//            jTextFieldEndereco.setText(clientePF.getEndereco()+ "");
-//            jTextFieldEmail.setText(clientePF.getEmail()+ "");
+            jTextFieldIdentificador.setText(agencia.getIdentificador() + "");
+            jTextFieldNome.setText(agencia.getNome());
+            jTextFieldCNPJ.setText(agencia.getCnpj() + "");
+            jTextFieldTelefone.setText(agencia.getTelefone() + "");
+            jTextFieldEndereco.setText(agencia.getEndereco());
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

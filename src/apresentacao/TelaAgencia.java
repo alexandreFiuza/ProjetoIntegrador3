@@ -40,7 +40,7 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
         btnEditar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblTitulo = new javax.swing.JTable(){
+        tblAgencia = new javax.swing.JTable(){
             @Override
             public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
                 Component component = super.prepareRenderer(renderer, row, column);
@@ -53,6 +53,8 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
         btnVoltar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
 
+        setTitle("AgenciaPI3 - Gerenciar Agências");
+
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +64,7 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        tblTitulo.setModel(new javax.swing.table.DefaultTableModel(
+        tblAgencia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -70,7 +72,7 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tblTitulo);
+        jScrollPane1.setViewportView(tblAgencia);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,9 +139,13 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
-            int linha = tblTitulo.getSelectedRow();
-            String codigo = tblTitulo.getValueAt(linha, 0).toString();
-
+            int linha = tblAgencia.getSelectedRow();
+            String codigo = tblAgencia.getValueAt(linha, 0).toString();
+            
+            if (linha == 0 || codigo.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Selecione uma agência a ser editada!");
+            }
+            
             TelaCadastroAgencia telaCadastroAgencia = new TelaCadastroAgencia(jDesktopPrincipal);
             jDesktopPrincipal.add(telaCadastroAgencia);
             telaCadastroAgencia.setLocation(20, 15);
@@ -177,6 +183,6 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblTitulo;
+    private javax.swing.JTable tblAgencia;
     // End of variables declaration//GEN-END:variables
 }
