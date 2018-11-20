@@ -37,10 +37,6 @@ public class NAgencia {
         
     }
 
-    public void excluir(int parametro) throws SQLException {
-        persistencia.excluir(parametro);
-    }
-
     public Agencia consultar(int parametro) throws SQLException {
         return persistencia.consultar(parametro);
     }
