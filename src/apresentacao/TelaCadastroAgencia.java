@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import negocio.NAgencia;
+import util.FormatarApenasLetras;
+import util.FormatarApenasNumeros;
 
 public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
 
@@ -25,7 +27,6 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
         this();
         this.jDesktopPrincipal = jDesktopPrincipal;
 
-        //preencher a tela
         try {
 
             NAgencia negocio = new NAgencia();
@@ -66,10 +67,10 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
+        jTextFieldNome = new FormatarApenasLetras(50);
         jTextFieldCNPJ = new javax.swing.JTextField();
         jTextFieldEndereco = new javax.swing.JTextField();
-        jTextFieldTelefone = new javax.swing.JTextField();
+        jTextFieldTelefone = new FormatarApenasNumeros(11);
         jButtonVoltar = new javax.swing.JButton();
         jButtonLimpar = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
@@ -78,6 +79,8 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
 
         jLabel1.setText("IDENTIFICADOR:");
 
+        jTextFieldIdentificador.setEditable(false);
+
         jLabel2.setText("NOME:");
 
         jLabel3.setText("CNPJ:");
@@ -85,6 +88,8 @@ public class TelaCadastroAgencia extends javax.swing.JInternalFrame {
         jLabel4.setText("ENDERECO:");
 
         jLabel5.setText("TELEFONE:");
+
+        jTextFieldNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jButtonVoltar.setText("VOLTAR");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package apresentacao;
 
 import entidade.Agencia;
@@ -16,17 +12,16 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import negocio.NAgencia;
 
-
 public class TelaAgencia extends javax.swing.JInternalFrame {
 
     JDesktopPane jDesktopPrincipal = new JDesktopPane();
-    
+
     public TelaAgencia() {
         initComponents();
         carregarTabela();
     }
-    
-    TelaAgencia(JDesktopPane jDesktopPrincipal){
+
+    TelaAgencia(JDesktopPane jDesktopPrincipal) {
         this();
         this.jDesktopPrincipal = jDesktopPrincipal;
     }
@@ -51,9 +46,9 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
 
                 conteudo.add(agencia.getIdentificador() + "");
                 conteudo.add(agencia.getNome() + "");
-                conteudo.add(agencia.getCnpj()+ "");
-                conteudo.add(agencia.getEndereco()+ "");
-                conteudo.add(agencia.getTelefone()+ "");
+                conteudo.add(agencia.getCnpj() + "");
+                conteudo.add(agencia.getEndereco() + "");
+                conteudo.add(agencia.getTelefone() + "");
 
                 linhas.add(conteudo);
             }
@@ -64,9 +59,10 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+
     }
-    
-   
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -98,14 +94,6 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        tblAgencia.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
         jScrollPane1.setViewportView(tblAgencia);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -172,15 +160,11 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        
+
         try {
             int linha = tblAgencia.getSelectedRow();
             String codigo = tblAgencia.getValueAt(linha, 0).toString();
-            
-//            if (linha == 0){
-//                JOptionPane.showMessageDialog(null, "Selecione uma agência a ser editada!");
-//            }
-            
+
             TelaCadastroAgencia telaCadastroAgencia = new TelaCadastroAgencia(jDesktopPrincipal, codigo);
             jDesktopPrincipal.add(telaCadastroAgencia);
             telaCadastroAgencia.setLocation(20, 15);
@@ -220,6 +204,7 @@ public class TelaAgencia extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnNovoActionPerformed
 
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
