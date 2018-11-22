@@ -31,6 +31,7 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jButtonAgencia = new javax.swing.JButton();
+        jButtonConta1 = new javax.swing.JButton();
 
         setTitle("AgenciaPI3 - Administração");
 
@@ -41,13 +42,22 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonConta1.setText("CONTA");
+        jButtonConta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConta1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(180, 180, 180)
-                .addComponent(jButtonAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(204, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -55,7 +65,9 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jButtonAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jButtonConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         pack();
@@ -77,9 +89,27 @@ public class TelaAdmPrincipal extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jButtonAgenciaActionPerformed
+
+    private void jButtonConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConta1ActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            TelaConta telaConta = new TelaConta(jDesktopPrincipal);
+            jDesktopPrincipal.add(telaConta);
+            telaConta.setLocation(20, 15);
+            telaConta.setVisible(true);
+            this.dispose();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
+    }//GEN-LAST:event_jButtonConta1ActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgencia;
+    private javax.swing.JButton jButtonConta1;
     // End of variables declaration//GEN-END:variables
 }

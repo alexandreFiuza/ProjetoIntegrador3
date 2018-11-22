@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 
-public class PAgencia {
+public class PAgencia{
     
     Connection cnn = util.Conexao.getConexao();
 
